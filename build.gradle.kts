@@ -1,6 +1,7 @@
 plugins {
-    alias(libs.plugins.android.library)
-    alias(libs.plugins.jetbrains.kotlin.android)
+    id("com.android.library") version "8.3.0"
+    id("org.jetbrains.kotlin.android") version "1.9.24"
+    id("maven-publish")
 }
 
 android {
@@ -35,9 +36,24 @@ android {
     }
 }
 
+publishing {
+    publications {
+        create<MavenPublication>("release") {
+            groupId = "com.github.juacosoft"
+            artifactId = "factusdian-sdk"
+            version = "SNAPSHOT-0.0.2-test"
+
+            afterEvaluate {
+                from(components["release"])
+            }
+        }
+    }
+}
+
+
 dependencies {
 
-    implementation(libs.androidx.core.ktx)
+    implementation("androidx.core:core-ktx:1.13.1")
 
     // Retrofit
     implementation("com.squareup.retrofit2:retrofit:2.11.0")
@@ -47,7 +63,6 @@ dependencies {
 
 
 
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
+    testImplementation("junit:junit:4.13.2")
+    androidTestImplementation("androidx.test.ext:junit:1.2.1")
 }
