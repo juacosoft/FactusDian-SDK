@@ -1,5 +1,11 @@
-*.iml
-.idea/
+# Gradle files
+.gradle/
 build/
 local.properties
-.gradle/
+
+# IntelliJ/Android Studio files
+.idea/
+*.iml
+
+# Logs
+*.log
