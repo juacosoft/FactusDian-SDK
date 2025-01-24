@@ -5,7 +5,7 @@ Introducción
 
 FactusDian SDK es una biblioteca Android diseñada para interactuar con la API de Haltech Factus. Este SDK permite gestionar autenticaciones, facturas, notas crédito, productos y otras operaciones relacionadas con la facturación electrónica en Colombia.
 
-Nota: La API de Factus está en desarrollo, y algunas funcionalidades podrían estar incompletas.
+Nota: este SDK Factus está en desarrollo, y algunas funcionalidades podrían estar incompletas.
 
 Importante: Este SDK actúa únicamente como intermediario para la comunicación entre dispositivos Android y la API de Factus. No me hago responsable de los resultados, problemas o implicaciones derivadas del uso del SDK. Además, es necesario solicitar acceso a la API de Haltech Factus antes de poder utilizar este SDK.
 
@@ -159,8 +159,6 @@ Si deseas contribuir a este proyecto, envíame un correo o contáctame directame
 ## Licencia
 Licencia
 Este proyecto está protegido bajo licencia Apache 2.0. 
-Consulta el archivo `LICENSE` para más información.
-
-```
+Consulta el archivo [LICENSE](https://github.com/juacosoft/FactusDian-SDK/blob/master/LICENSE) para más información.
 
 
