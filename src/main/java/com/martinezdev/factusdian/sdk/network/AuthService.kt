@@ -1,5 +1,6 @@
 package com.martinezdev.factusdian.sdk.network
 
+import androidx.annotation.VisibleForTesting
 import com.martinezdev.factusdian.sdk.models.AuthResponseModel
 import com.martinezdev.factusdian.sdk.services.AuthClient
 import com.martinezdev.factusdian.sdk.utils.ApiCallHandler
@@ -9,9 +10,10 @@ internal class AuthService(
     private val clientId: String,
     private val clientSecret: String,
     private val isDebugMode: Boolean,
-    private val apiCallHandler: ApiCallHandler
+    private val apiCallHandler: ApiCallHandler,
+    private val authClient: AuthClient = AuthClient(baseUrl, isDebugMode)
 ) {
-    private val authClient = AuthClient(baseUrl, isDebugMode)
+
 
     suspend fun getAuthToken(user: String, pass: String): Result<AuthResponseModel> {
         return apiCallHandler.safeApiCall(

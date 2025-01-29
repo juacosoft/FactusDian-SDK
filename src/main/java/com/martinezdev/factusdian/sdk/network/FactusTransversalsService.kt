@@ -1,5 +1,6 @@
 package com.martinezdev.factusdian.sdk.network
 
+import androidx.annotation.VisibleForTesting
 import com.martinezdev.factusdian.sdk.models.FactusGetCreditNotesResponse
 import com.martinezdev.factusdian.sdk.models.FactusGetMunicipalitysResponse
 import com.martinezdev.factusdian.sdk.models.FactusGetTributesProductsResponse
@@ -14,7 +15,8 @@ internal class FactusTransversalsService(
     private val apiCallHandler: ApiCallHandler
 ){
 
-    private val factusCommonClient = FactusCommonClient(baseUrl, isDebugMode)
+    @VisibleForTesting
+    var factusCommonClient = FactusCommonClient(baseUrl, isDebugMode)
 
     suspend fun getMunicipalities(
         token: String,

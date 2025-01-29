@@ -1,5 +1,6 @@
 package com.martinezdev.factusdian.sdk.network
 
+import androidx.annotation.VisibleForTesting
 import com.martinezdev.factusdian.sdk.models.FactusCreateInvoiceRequest
 import com.martinezdev.factusdian.sdk.models.FactusCreateInvoiceResponse
 import com.martinezdev.factusdian.sdk.models.FactusGetFactDocumentResponse
@@ -13,7 +14,9 @@ internal class InvoiceService(
     private val isDebugMode: Boolean,
     private val apiCallHandler: ApiCallHandler
 ) {
-    private val factusCommonClient = FactusCommonClient(baseUrl, isDebugMode)
+
+    @VisibleForTesting
+    var factusCommonClient = FactusCommonClient(baseUrl, isDebugMode)
 
     suspend fun getInvoices(
         token: String,
