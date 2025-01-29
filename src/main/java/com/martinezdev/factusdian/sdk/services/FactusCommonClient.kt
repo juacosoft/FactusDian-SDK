@@ -1,5 +1,6 @@
 package com.martinezdev.factusdian.sdk.services
 
+import com.martinezdev.factusdian.sdk.network.api.CreditNoteApi
 import com.martinezdev.factusdian.sdk.network.api.FactusInvoiceApi
 import com.martinezdev.factusdian.sdk.network.api.FactusTransversalsApi
 import okhttp3.Interceptor
@@ -59,5 +60,27 @@ internal class FactusCommonClient(
             .addConverterFactory(GsonConverterFactory.create())
             .build()
             .create(FactusTransversalsApi::class.java)
+    }
+
+    fun getCreditNotesApi(token: String, tokenType: String): CreditNoteApi {
+        val headerinterceptor = Interceptor { chain ->
+            val request = chain.request().newBuilder()
+                .addHeader("Authorization", "$tokenType $token")
+                .addHeader("Accept", "application/json")
+                .build()
+            chain.proceed(request)
+        }
+
+        val client = OkHttpClient.Builder()
+            .addInterceptor(loggingInterceptor)
+            .addInterceptor(headerinterceptor)
+            .build()
+
+        return Retrofit.Builder()
+            .baseUrl(baseUrl)
+            .client(client)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+            .create(CreditNoteApi::class.java)
     }
 }
