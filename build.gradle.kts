@@ -1,6 +1,6 @@
 plugins {
-    id("com.android.library") version "8.3.0"
-    id("org.jetbrains.kotlin.android") version "1.9.24"
+    id("com.android.library")
+    id("org.jetbrains.kotlin.android")
     id("maven-publish")
 }
 
@@ -63,7 +63,8 @@ dependencies {
     implementation("com.squareup.okhttp3:logging-interceptor:4.9.3")
 
 
-
+    // Testing
     testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.2.1")
+    testImplementation("io.mockk:mockk:1.13.16")
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.2")
 }
