@@ -13,6 +13,12 @@ data class FactisGetCreditNoteData(
     @SerializedName("pagination") val pagination: FactusGetCreditNotesPagination
 )
 
+data class GetCreditNoteResponse(
+    @SerializedName("status") val status: String,
+    @SerializedName("message") val message: String,
+    @SerializedName("data") val data: FactusGetCreditNote
+)
+
 data class FactusGetCreditNote(
     @SerializedName("id") val id: Int,
     @SerializedName("api_client_name") val apiClientName: String,

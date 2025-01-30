@@ -42,7 +42,7 @@ publishing {
         create<MavenPublication>("release") {
             groupId = "com.github.juacosoft"
             artifactId = "FactusDian-SDK"
-            version = "0.0.3"
+            version = "0.4.0"
 
             afterEvaluate {
                 from(components["release"])

@@ -143,6 +143,8 @@ suspend fun fetchMunicipalities() {
 
 ### Notas crédito
 - **getCreditNotes:** Obtener notas crédito.
+- **getCreditNotePDF:** Descargar una nota crédito en formato PDF.
+- **createCreditNote:** Crear una nueva nota crédito.
 
 ---
 
